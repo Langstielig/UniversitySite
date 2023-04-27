@@ -1,0 +1,21 @@
+﻿@model Group
+@{
+    ViewBag.Title = Model.MetaName;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+}
+
+<div>
+    <h2>
+        @Model.Name
+    </h2>
+    <h2>
+        @Model.Students
+    </h2>
+    @*<div>
+        <img class="img-block" src="~/images/@Model.TitleImagePath" />
+    </div>*@
+</div>
+<div>
+    @Html.Raw(Model.Name)
+</div>

@@ -1,0 +1,21 @@
+﻿@model ClassForName
+@{
+    string strTitle = "Редактировать запись";
+    ViewBag.Title = strTitle;
+}
+
+<div>
+    <h2>@strTitle</h2>
+    <div>
+        <form asp-area="Admin" asp-controller="Students" asp-action="DeleteActivity" method="post" enctype="multipart/form-data">
+
+            <div asp-validation-summary="All"></div>
+            <div class="div-box">
+                <label>Название студенческой группы</label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <input type="submit" value="Сохранить" />
+        </form>
+    </div>
+</div>

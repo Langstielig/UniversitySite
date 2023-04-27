@@ -1,0 +1,25 @@
+﻿@model IQueryable<Group>
+@*@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.MetaName;
+    ViewBag.Description = textField.MetaDescription;
+    ViewBag.Keywords = textField.MetaKeywords;
+}*@
+
+<div>
+    @if (Model.Any())
+    {
+            @foreach (Group entity in Model)
+            {
+                    <li>
+                    <p>Группа номер @entity.Id , куратор - @entity.Name 
+                        Список студентов:
+                    @foreach(Student st in entity.Students) 
+                    {
+                        <p>@st.Name @st.Surname</p>
+                    }
+                    </li>
+            }
+    }
+</div>

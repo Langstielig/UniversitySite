@@ -1,0 +1,29 @@
+﻿@model IQueryable<Student>
+@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.MetaName;
+    ViewBag.Description = textField.MetaDescription;
+    ViewBag.Keywords = textField.MetaKeywords;
+}
+
+<div>
+    @if (Model.Any())
+    {
+            <ul class="big-image-list">
+            @foreach (Student entity in Model)
+            {
+                        <li>
+                            @*<a asp-area="" asp-controller="Services" asp-action="Index" asp-route-id="@entity.Id">
+                                <img src="~/images/@entity.TitleImagePath" alt="" class="left" />
+                            </a>*@
+                            <p>@entity.Name @entity.Surname, возраст @entity.Age</p>
+                    @if (@entity.GroupId != default) {<p>Номер группы  @entity.GroupId</p>}
+                    @if(entity.GroupId == default) {<p>Студент не принадлежит никакой группе</p>}
+                    
+                    <p>@entity.StudentActivities</p>
+                        </li>
+            }
+            </ul>
+    }
+</div>
